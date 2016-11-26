@@ -1,0 +1,11 @@
+{
+  "name": "mission-control-frontend",
+  "version": "1.0.0",
+  "description": "A frontend for 2016 robot mission control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GowanR",
+  "license": "ISC"
+}

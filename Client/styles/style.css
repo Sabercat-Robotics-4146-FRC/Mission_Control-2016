@@ -1,0 +1,16 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+.info-block {
+  color: white;
+  background-color: #b3c2db;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 10px 10px;
+}
+.info-block:hover {
+  background-color: #8f9fba;
+}
