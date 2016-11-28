@@ -1,0 +1,13 @@
+[redis]
+ip = "localhost"
+db = "0"
+
+[binary] # Display and data type
+Test-Bool = "redis-key-boolean" # Redis key to data
+
+[range]
+# usage: ["redis-value", "min-value", "max-value"]
+Test-Range = ["redis-key-range", "-180", "180"]
+
+[float]
+Test-Float = "redis-key-float"
