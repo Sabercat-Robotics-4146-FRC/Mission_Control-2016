@@ -3,11 +3,14 @@ ip = "localhost"
 db = "0"
 
 [binary] # Display and data type
-Test-Bool = "redis-key-boolean" # Redis key to data
+Test-Bool = [ "Display Name", "redis-key-boolean" ] # Redis key to data
 
 [range]
 # usage: ["redis-value", "min-value", "max-value"]
 Test-Range = ["redis-key-range", "-180", "180"]
 
 [float]
-Test-Float = "redis-key-float"
+Test-Float = [ "Display Name", "redis-key-float" ]
+
+[graph]
+Test-Graph = [ "Display Name", "redis-graph-data-key", "display-rate", "buffer-size"]

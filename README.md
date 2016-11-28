@@ -3,9 +3,16 @@ A frontend for debuging and monitoring the robot in-game.
 
 ## Current Build
  - Chart.js for displaying data.
- - possible python server for networking with the robot.
+ - Redis database backend.
+ - TOML configuration and generation.
 
-## Planned Display
+## Planned Display Features
  - Real-time clock speed and memory usage
  - Real-time robot state readout
  - Real-time sensor readout
+
+### Planned Display Modules
+ - Graph
+ - Range
+ - Binary
+ - String
