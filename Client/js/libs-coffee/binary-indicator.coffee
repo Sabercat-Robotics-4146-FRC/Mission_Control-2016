@@ -3,9 +3,17 @@
 # Written by GowanR
 
 $ = require("jquery")
-
+redis = require( 'redis' )
+client = redis.createClient(db="0")
+bluebird = require('bluebird')
+bluebird.promisifyAll(redis.RedisClient.prototype)
+bluebird.promisifyAll(redis.Multi.prototype)
 log = console.log
 
+get_value = ( key ) ->
+  client.getAsync( key ).then( ( res ) ->
+    return res
+  )
 class Binary
   constructor: ( @id, @contents ) ->
     @init_dom_element()
@@ -17,6 +25,6 @@ class Binary
     window.setInterval( () ->
       # update values from redis
       # update DOM
-      log "test"
+      log get_value "test"
     , time )
 example = new Binary( "testid", "Test" )
