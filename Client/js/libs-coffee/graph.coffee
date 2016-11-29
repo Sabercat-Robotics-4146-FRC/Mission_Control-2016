@@ -16,15 +16,22 @@ trim_push = ( array, value, size ) ->
     array.shift()
   array.push( value )
 
-get_value = ( key ) ->
-  client.getAsync( key ).then( ( res ) ->
-    return res
-  )
+`
+get_value = function( key ) {
+  client.getAsync( key ).then(function(res) {
+    console.log( "res: " + res  )
+    return res;
+  });
+}
+`
+# get_value = ( key ) ->
+#   client.getAsync( key ).then( ( res ) ->
+#     return res
+#   )
 
 class Graph
   constructor: ( @id ) ->
     @init_dom_element()
-    @init_update_iteration( 500 )
     stats = {
       type: 'line',
       data: {
@@ -43,23 +50,31 @@ class Graph
             responsive: false
       }
     }
-    log  stats
     `this.chart = new Chart( this.ctx, stats );`
     @chart_data = @chart.data.datasets[0].data
-    log "Chart data " + @chart_data
+    @init_update_iteration( 500 )
   init_dom_element: () ->
     @element = document.createElement('canvas')
     $( @element ).attr( "id", @id ).attr( "width", "500px" ).attr( "height", "500px" ).appendTo('.contents')
     @ctx = @element.getContext('2d')
 
   init_update_iteration: ( time ) ->
-    window.setInterval( ( chart ) ->
-      log chart
+    #data = @
+    #log "DATA: " + data
+    chart = @chart
+    window.setInterval( () ->
       # update values from redis
       # update DOM
-      trim_push( chart.data.datasets[0].data, 10, 7 )
-      @chart.update()
+      log "NFN: " + get_value
+      next = get_value( 'graph-test' )
+      log "New Val: " + next
+
+
+      client.getAsync( 'graph-test' ).then( (res) ->
+        console.log( "res: " + res  )
+        trim_push( chart.data.datasets[0].data, res, 7 )
+        chart.update()
+      )
       #get_value( )
-      log "test2"
-    , time, @chart )
+    , time )
 example = new Graph( "testgraphid", "Test" )
