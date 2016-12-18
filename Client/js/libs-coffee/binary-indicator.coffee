@@ -10,21 +10,29 @@ bluebird.promisifyAll(redis.RedisClient.prototype)
 bluebird.promisifyAll(redis.Multi.prototype)
 log = console.log
 
-get_value = ( key ) ->
-  client.getAsync( key ).then( ( res ) ->
-    return res
-  )
 class Binary
-  constructor: ( @id, @contents ) ->
+  constructor: ( @id, @key ) ->
     @init_dom_element()
     @init_update_iteration( 500 )
   init_dom_element: () ->
-    @element = $( ".contents" ).append( "div" ).attr( "id", @id )
-    @element.text( @contents )
+    @element = $( ".binary" ).append().attr( "id", @id )
+    @element.text( "\n" + @id )
+    @indicator = @element.add()
+    @indicator.attr("id", @id + "_ind" )
+    @indicator.addClass( "false" )
   init_update_iteration: ( time ) ->
+    element = @indicator
+    key = @key
     window.setInterval( () ->
       # update values from redis
       # update DOM
-      log get_value "test"
+      client.getAsync( key ).then( ( res ) ->
+        if res == "true"
+          element.removeClass( "false" ).addClass( "true" )
+        else
+          element.removeClass( "true" ).addClass( "false" )
+      )
+
     , time )
-example = new Binary( "testid", "Test" )
+
+exports.Binary = Binary
