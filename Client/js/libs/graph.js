@@ -46,7 +46,7 @@
 
     Graph.prototype.init_dom_element = function() {
       this.element = document.createElement('canvas');
-      $(this.element).attr("id", this.id).attr("width", "500px").attr("height", "500px").appendTo('.graphs');
+      $(this.element).attr("id", this.id).attr("width", "500px").attr("height", "500px").attr("style", "display:inline;").appendTo('.graphs');
       return this.ctx = this.element.getContext('2d');
     };
 

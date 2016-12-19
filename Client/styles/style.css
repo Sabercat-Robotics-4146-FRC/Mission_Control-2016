@@ -19,7 +19,12 @@ html {
     background-color: #8f9fba;
 }
 
+.graphs {
+    display: inline;
+}
+
 .binary {
+    display: inline;
     float: right;
 }
 
@@ -44,16 +49,20 @@ html {
     background-color: rgba(27, 196, 47, 0.6);
     border-radius: 50px;
 }
+
 .floats {
-  margin: 10px;
+    margin: 10px;
+    display: inline;
+    float: right;
 }
+
 .float-wrapper {
-  margin: 8px;
-  display: inline;
-  background-color: white;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 5px;
+    margin: 8px;
+    display: inline;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
 }

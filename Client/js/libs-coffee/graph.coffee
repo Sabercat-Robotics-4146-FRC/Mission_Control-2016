@@ -32,7 +32,7 @@ class Graph
         @init_update_iteration( 500 )
     init_dom_element: () ->
         @element = document.createElement('canvas')
-        $( @element ).attr( "id", @id ).attr( "width", "500px" ).attr( "height", "500px" ).appendTo('.graphs')
+        $( @element ).attr( "id", @id ).attr( "width", "500px" ).attr( "height", "500px" ).attr( "style", "display:inline;" ).appendTo('.graphs')
         @ctx = @element.getContext('2d')
 
     init_update_iteration: ( time ) ->
