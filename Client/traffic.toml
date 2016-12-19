@@ -3,7 +3,8 @@ ip = "localhost"
 db = "0"
 
 [binary] # Display and data type
-Test-Bool = [ "Display Name", "redis-key-boolean" ] # Redis key to data
+Test-Bool = ["Ready_To_Drive", "none"] # Redis key to data
+Other-Test-Bool = ["Ready_To_Shoot", "shoot"]
 
 [range]
 # usage: ["redis-value", "min-value", "max-value"]
@@ -13,4 +14,5 @@ Test-Range = ["redis-key-range", "-180", "180"]
 Test-Float = [ "Display Name", "redis-key-float" ]
 
 [graph]
-Test-Graph = [ "Display Name", "redis-graph-data-key", "display-rate", "buffer-size"]
+Test-Graph = [ "Name_Of_Data", "graph-test", "rgba(15, 86, 198, 0.4)" ]
+Another-Graph = ["Voltage", "voltage", "rgba(232, 42, 32, 0.6)"]
