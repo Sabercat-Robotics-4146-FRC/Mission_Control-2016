@@ -17,7 +17,7 @@ while True:
     r.set( "graph-test", val )
     val = str( rand_range( 0, 100 ) )
     r.set( "voltage", val )
-
+    r.set( "redis-float-key", val )
     if rand_range(0, 2) >= 1:
         r.set( "shoot", "true" )
     else:

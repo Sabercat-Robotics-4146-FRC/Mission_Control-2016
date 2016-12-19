@@ -11,7 +11,7 @@ Other-Test-Bool = ["Ready_To_Shoot", "shoot"]
 Test-Range = ["redis-key-range", "-180", "180"]
 
 [float]
-Test-Float = [ "Display Name", "redis-key-float" ]
+Test-Float = [ "Name_Of_Float", "redis-float-key" ]
 
 [graph]
 Test-Graph = [ "Name_Of_Data", "graph-test", "rgba(15, 86, 198, 0.4)" ]
